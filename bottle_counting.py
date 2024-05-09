@@ -15,7 +15,7 @@ cap.set(cv.CAP_PROP_FRAME_HEIGHT, 1080)
 
 tracker = Sort(max_age=20,min_hits=3)
 line = [1100, 0, 1100, 900]
-counterin = []
+counter = []
 
 
 classnames = []
@@ -72,10 +72,10 @@ while 1:
 
         if line[1] < cy < line[3] and line[2] - 10< cx < line[2] + 10:
             cv.line(img, (line[0], line[1]), (line[2], line[3]), (0, 0, 255), 10)
-            if counterin.count(id) == 0:
-                counterin.append(id)
+            if counter.count(id) == 0:
+                counter.append(id)
 
-    cvzone.putTextRect(img, f'Total Bottles = {len(counterin)}', [500, 34], thickness=4, scale=2.3, border=2)
+    cvzone.putTextRect(img, f'Total Bottles = {len(counter)}', [500, 34], thickness=4, scale=2.3, border=2)
 
     cv.imshow('test',img)
     cv.waitKey(1)
